@@ -2,7 +2,7 @@ name: Daily Newsletter Generation
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs at 8:00 AM UTC every day
+    - cron: '0 11 * * *'  # Runs at 8:00 AM UTC every day
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
