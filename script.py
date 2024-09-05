@@ -1,4 +1,5 @@
 import requests
+import os
 from bs4 import BeautifulSoup
 from openai import OpenAI
 import time
