@@ -22,8 +22,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Debug Environment
+      run: |
+        echo "Python version:"
+        python --version
+        echo "Current directory:"
+        pwd
+        echo "Directory contents:"
+        ls -la
+        echo "Environment variables:"
+        env
+
     - name: Run script
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-      run: python script.py  # Replace with your actual script name
+      run: |
+        echo "Running script..."
+        python -c "import os; print(os.environ.get('OPENAI_API_KEY', 'API key not found'))"
+        python script.py
